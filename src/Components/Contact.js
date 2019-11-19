@@ -26,9 +26,7 @@ class Contact extends Component {
       event.preventDefault();
       const userId = this.props.data.userId;
       const templateId = this.props.data.templateId;
-      let variables = this.state.variables;
-
-      console.log(variables);
+      
       var templateParams = {
          from_name: this.state.contact.contactName.value,
          to_name: this.state.name.value,
@@ -49,8 +47,6 @@ class Contact extends Component {
 
 
    inputChangedHandler = (event) => {
-      console.log(event.target.value);
-      console.log(event.target.id);
       const updatedForm = {
          ...this.state.contact
       };
@@ -62,18 +58,13 @@ class Contact extends Component {
       updatedFormElement.touched = true;
       updatedForm[event.target.id] = updatedFormElement;
 
-      this.setState({ contact: updatedForm });
-      console.log(this.state.contact);
+      this.setState({ contact: updatedForm });      
 
       this.setState({
          feedback: updatedForm.contactMessage,
          name: updatedForm.contactName,
          variables: { message_html: updatedForm.contactMessage, from_name: updatedForm.contactName, reply_to: updatedForm.contactEmail }
       });
-
-      console.log(this.state.feedback);
-      console.log(this.state.name);
-      console.log(this.state.variables);
    }
 
    render() {
