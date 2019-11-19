@@ -8,7 +8,7 @@ import About from './Components/About';
 import Resume from './Components/Resume';
 import Contact from './Components/Contact';
 import Portfolio from './Components/Portfolio';
-
+import jsonData from "./assests/resumeData.json";
 class App extends Component {
 
   constructor(props){
@@ -20,26 +20,25 @@ class App extends Component {
 
     ReactGA.initialize('UA-110570651-1');
     ReactGA.pageview(window.location.pathname);
-
   }
 
-  getResumeData(){
-    $.ajax({
-      url:'/resumeData.json',
-      dataType:'json',
-      cache: false,
-      success: function(data){
-        this.setState({resumeData: data});
-      }.bind(this),
-      error: function(xhr, status, err){
-        console.log(err);
-        alert(err);
-      }
-    });
-  }
+  // getResumeData(){
+  //   $.ajax({
+  //     url:jsonData,
+  //     dataType:'json',
+  //     cache: false,
+  //     success: function(data){
+  //       this.setState({resumeData: data});
+  //     }.bind(this),
+  //     error: function(xhr, status, err){
+  //       console.log(err);
+  //       alert(err);
+  //     }
+  //   });
+  // }
 
   componentDidMount(){
-    this.getResumeData();
+    this.setState({resumeData: jsonData});
   }
 
   render() {
