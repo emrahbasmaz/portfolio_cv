@@ -6,7 +6,7 @@
   "dependencies": {
     "emailjs-com": "^2.4.1",
     "gh-pages": "^2.1.1",
-    "jquery": "^3.2.1",
+    "jquery": "^3.5.0",
     "react": "^16.2.0",
     "react-alert": "^6.0.0",
     "react-dom": "^16.2.0",
